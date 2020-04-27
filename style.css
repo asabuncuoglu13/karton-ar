@@ -1,0 +1,12 @@
+/* CSS files add styling rules to your content */
+
+body {
+  margin : 0px; 
+  overflow: hidden; 
+  font-family: Monospace;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+}
