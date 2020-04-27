@@ -1,75 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Hello!</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <!-- include aframe-ar.js -->
-    <script src="/aframe-ar.js"></script>
-    <script src="/script.js" defer></script>
+    <script src="./aframe-ar.js"></script>
+    <script src="./script.js" defer></script>
     <!-- Register an aframe component that allows reacting to marker events -->
     <script>
-      window.addEventListener("camera-init", data => {
-        console.log("camera-init", data);
-      });
+        window.addEventListener("camera-init", data => {
+            console.log("camera-init", data);
+        });
 
-      window.addEventListener("camera-error", error => {
-        console.log("camera-error", error);
-      });
+        window.addEventListener("camera-error", error => {
+            console.log("camera-error", error);
+        });
     </script>
-    <script>
-      const arController = document.querySelector("a-scene").systems.arjs
-        ._arSession.arContext.arController;
-
-      arController.addEventListener("getMarker", evt => {
-        console.log(evt);
-      });
-      document.getElementById("box").addEventListener("markerFound", e => {
-        console.log("marker found at " + e.id);
-        combineMarkers(e.id);
-      });
-    </script>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <div
-      style="position: fixed; top: 10px; left: 5px; text-align: center; z-index: 1;"
-    >
-      <a href="https://github.com/jeromeetienne/AR.js/" target="_blank"
-        >AR.js</a
-      >
-      - marker events example for a-frame - look at the js console
-      <br />
-      Contact me any time at
-      <a href="https://twitter.com/jerome_etienne" target="_blank"
-        >@jerome_etienne</a
-      >
-    </div>
-    <a-scene embedded arjs="sourceType: webcam;" renderer="precision: medium;">
-      <!-- handle hiro marker -->
-      <!-- 'registerevents' will register event listeners for the marker when it is found and lost,
-		as defined in the inline script above -->
-      <a-marker
-        type="pattern"
-        id="box"
-        url="https://cdn.glitch.com/fd85a936-68a1-4977-912f-854109f23e47%2Fdown.patt?v=1587918587813"
-        registerevents
-      >
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+<div style="position: fixed; top: 10px; left: 5px; text-align: center; z-index: 1;">
+    <a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a>
+    - marker events example for a-frame - look at the js console
+    <br/>
+    Contact me any time at
+    <a href="https://twitter.com/jerome_etienne" target="_blank">@jerome_etienne</a>
+</div>
+<a-scene embedded arjs="sourceType: webcam;" renderer="precision: medium;">
+    <a-marker
+            type="pattern"
+            id="box"
+            url="https://cdn.glitch.com/fd85a936-68a1-4977-912f-854109f23e47%2Fdown.patt?v=1587918587813"
+            registerevents>
         <a-box color="tomato" depth="2" height="4" width="0.5"></a-box>
-      </a-marker>
+    </a-marker>
 
-      <a-marker
-        type="pattern"
-        id="red"
-        url="https://cdn.glitch.com/fd85a936-68a1-4977-912f-854109f23e47%2Fpattern-marker.patt?v=1587919922887"
-        registerevents
-      >
-      </a-marker>
+    <a-marker
+            type="pattern"
+            id="red"
+            url="https://cdn.glitch.com/fd85a936-68a1-4977-912f-854109f23e47%2Fpattern-marker.patt?v=1587919922887"
+            registerevents>
+    </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
 
-      <!-- add a simple camera -->
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById("box").addEventListener("markerFound", e => {
+      console.log(box + " marker is found");
+      combineMarkers(box);
+    });
+    document.getElementById("red").addEventListener("markerFound", e => {
+      console.log(red + " marker is found");
+      combineMarkers(red);
+    });
+  });
+
+</script>
+</body>
 </html>
