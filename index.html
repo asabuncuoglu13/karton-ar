@@ -18,24 +18,17 @@
       window.addEventListener("camera-error", error => {
         console.log("camera-error", error);
       });
+    </script>
+    <script>
+      const arController = document.querySelector("a-scene").systems.arjs
+        ._arSession.arContext.arController;
 
-      AFRAME.registerComponent("registerevents", {
-        init: function() {
-          var marker = this.el;
-
-          marker.addEventListener("markerFound", function() {
-            var markerId = marker.id;
-            console.log("markerFound", markerId);
-            combineMarker(markerId);
-            // TODO: Add your own code here to react to the marker being found.
-          });
-
-          marker.addEventListener("markerLost", function() {
-            var markerId = marker.id;
-            console.log("markerLost", markerId);
-            // TODO: Add your own code here to react to the marker being lost.
-          });
-        }
+      arController.addEventListener("getMarker", evt => {
+        console.log(evt);
+      });
+      document.getElementById("box").addEventListener("markerFound", e => {
+        console.log("marker found at " + e.id);
+        combineMarkers(e.id);
       });
     </script>
     <link rel="stylesheet" href="/style.css" />
@@ -54,11 +47,7 @@
         >@jerome_etienne</a
       >
     </div>
-    <a-scene
-      embedded
-      arjs="sourceType: webcam;"
-      renderer="precision: medium;"
-    >
+    <a-scene embedded arjs="sourceType: webcam;" renderer="precision: medium;">
       <!-- handle hiro marker -->
       <!-- 'registerevents' will register event listeners for the marker when it is found and lost,
 		as defined in the inline script above -->
@@ -68,8 +57,9 @@
         url="https://cdn.glitch.com/fd85a936-68a1-4977-912f-854109f23e47%2Fdown.patt?v=1587918587813"
         registerevents
       >
+        <a-box color="tomato" depth="2" height="4" width="0.5"></a-box>
       </a-marker>
-      
+
       <a-marker
         type="pattern"
         id="red"
