@@ -22,43 +22,48 @@
     <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
-<div style="position: fixed; top: 10px; left: 5px; text-align: center; z-index: 1;">
-    <a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a>
-    - marker events example for a-frame - look at the js console
-    <br/>
-    Contact me any time at
-    <a href="https://twitter.com/jerome_etienne" target="_blank">@jerome_etienne</a>
+<div id="info-box">
+    Created with AR.js and AFrame.
 </div>
-<a-scene embedded arjs="sourceType: webcam;" renderer="precision: medium;">
-    <a-marker
-            type="pattern"
-            id="box"
-            url="https://cdn.glitch.com/fd85a936-68a1-4977-912f-854109f23e47%2Fdown.patt?v=1587918587813"
-            registerevents>
-        <a-box color="tomato" depth="2" height="4" width="0.5"></a-box>
+<a-scene id="scene" embedded arjs="sourceType: webcam;" renderer="precision: medium;">
+    <a-marker type="pattern" id="cube"
+              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cube.patt?v=1588089444176"
+              registerevents>
     </a-marker>
-
-    <a-marker
-            type="pattern"
-            id="red"
-            url="https://cdn.glitch.com/fd85a936-68a1-4977-912f-854109f23e47%2Fpattern-marker.patt?v=1587919922887"
-            registerevents>
+    <a-marker type="pattern" id="sphere"
+              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-sphere.patt?v=1588089443759"
+              registerevents>
+        <a-sphere color="black" radius="1"></a-sphere>
+    </a-marker>
+    <a-marker type="pattern" id="cylinder"
+              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cylinder.patt?v=1588089443520"
+              registerevents>
+        <a-cylinder color="black" height="1" radius="1"></a-cylinder>
+    </a-marker>
+    <a-marker type="pattern" id="red"
+              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-red.patt?v=1588088872474"
+              registerevents>
+    </a-marker>
+    <a-marker type="pattern" id="green"
+              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-green.patt?v=1588088872385"
+              registerevents>
+    </a-marker>
+    <a-marker type="pattern" id="blue"
+              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-blue.patt?v=1588088872172"
+              registerevents>
     </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
 
-
 <script>
-  window.addEventListener('load', () => {
-    document.getElementById("box").addEventListener("markerFound", e => {
-      console.log(box + " marker is found");
-      combineMarkers(box);
+    window.addEventListener('load', () => {
+        for (let i= 0; i<commands.length; i++) {
+            document.getElementById(commands[i]).addEventListener("markerFound", e => {
+                document.getElementById("info-box").innerText = commands[i] + " marker is found";
+                combineMarkers(commands[i]);
+            });
+        }
     });
-    document.getElementById("red").addEventListener("markerFound", e => {
-      console.log(red + " marker is found");
-      combineMarkers(red);
-    });
-  });
 
 </script>
 </body>

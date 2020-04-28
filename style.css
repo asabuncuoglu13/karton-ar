@@ -1,12 +1,22 @@
 /* CSS files add styling rules to your content */
-
 body {
-  margin : 0px; 
-  overflow: hidden; 
-  font-family: Monospace;
+    margin: 0px;
+    overflow: hidden;
+    font-family: Monospace;
 }
 
 h1 {
-  font-style: italic;
-  color: #373fff;
+    font-style: italic;
+    color: #373fff;
+}
+
+#info-box {
+    position: fixed;
+    top: 10px;
+    left: 5px;
+    text-align: center;
+    z-index: 1;
+    font-size: large;
+    background: midnightblue;
+    color: azure;
 }
