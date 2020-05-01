@@ -6,9 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- include aframe-ar.js -->
     <script src="./aframe-ar.js"></script>
-    <script src="./script.js" defer></script>
+    <script src="./script.js"></script>
+    <script src="./ui.js"></script>
+    <script src="./color.js"></script>
+    <script src="translate.js"></script>
     <!-- Register an aframe component that allows reacting to marker events -->
     <script>
         window.addEventListener("camera-init", data => {
@@ -25,30 +31,31 @@
 <div id="info-box">
     Created with AR.js and AFrame.
 </div>
+<div id="dialog" class="ui-widget-content" title="Options"></div>
 <a-scene id="scene" embedded arjs="sourceType: webcam;" renderer="precision: medium;">
-    <a-marker type="pattern" id="cube"
+    <a-marker type="pattern" id="box-patt"
               url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cube.patt?v=1588089444176"
               registerevents>
     </a-marker>
-    <a-marker type="pattern" id="sphere"
+    <a-marker type="pattern" id="sphere-patt"
               url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-sphere.patt?v=1588089443759"
               registerevents>
         <a-sphere color="black" radius="1"></a-sphere>
     </a-marker>
-    <a-marker type="pattern" id="cylinder"
+    <a-marker type="pattern" id="cylinder-patt"
               url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cylinder.patt?v=1588089443520"
               registerevents>
         <a-cylinder color="black" height="1" radius="1"></a-cylinder>
     </a-marker>
-    <a-marker type="pattern" id="red"
+    <a-marker type="pattern" id="red-patt"
               url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-red.patt?v=1588088872474"
               registerevents>
     </a-marker>
-    <a-marker type="pattern" id="green"
+    <a-marker type="pattern" id="green-patt"
               url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-green.patt?v=1588088872385"
               registerevents>
     </a-marker>
-    <a-marker type="pattern" id="blue"
+    <a-marker type="pattern" id="blue-patt"
               url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-blue.patt?v=1588088872172"
               registerevents>
     </a-marker>
