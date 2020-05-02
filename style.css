@@ -1,12 +1,45 @@
 /* CSS files add styling rules to your content */
-
 body {
-  margin : 0px; 
-  overflow: hidden; 
-  font-family: Monospace;
+    margin: 0px;
+    overflow: hidden;
+    font-family: Monospace;
 }
 
 h1 {
-  font-style: italic;
-  color: #373fff;
+    font-style: italic;
+    color: #373fff;
 }
+
+#info-box {
+    position: fixed;
+    top: 10px;
+    left: 5px;
+    text-align: center;
+    z-index: 1;
+    font-size: large;
+    background: midnightblue;
+    color: azure;
+}
+
+
+#singleSlider, #redSlider, #greenSlider, #blueSlider {
+    float: left;
+    clear: left;
+    width: 300px;
+    margin: 15px;
+}
+
+#swatchArea {
+    width: 120px;
+    height: 100px;
+    margin-top: 18px;
+    margin-left: 350px;
+    background-image: none;
+}
+
+#redSlider .ui-slider-range { background: #ef2929; }
+#redSlider .ui-slider-handle { border-color: #ef2929; }
+#greenSlider .ui-slider-range { background: #8ae234; }
+#greenSlider .ui-slider-handle { border-color: #8ae234; }
+#blueSlider .ui-slider-range { background: #729fcf; }
+#blueSlider .ui-slider-handle { border-color: #729fcf; }

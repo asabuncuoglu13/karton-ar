@@ -2445,7 +2445,7 @@ ARjs.Context = THREEx.ArToolkitContext = function (parameters) {
         canvasHeight: 480,
 
         // the patternRatio inside the artoolkit marker - artoolkit only
-        patternRatio: 0.5,
+        patternRatio: 0.6,
 
         // enable image smoothing or not for canvas copy - default to true
         // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled
