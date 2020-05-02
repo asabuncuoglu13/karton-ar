@@ -22,14 +22,14 @@ h1 {
 }
 
 
-#singleSlider, #redSlider, #greenSlider, #blueSlider {
+.pop-slider {
     float: left;
     clear: left;
     width: 300px;
     margin: 15px;
 }
 
-#swatchArea {
+.pop-result {
     width: 120px;
     height: 100px;
     margin-top: 18px;
