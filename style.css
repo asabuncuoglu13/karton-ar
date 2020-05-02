@@ -21,22 +21,25 @@ h1 {
     color: azure;
 }
 
-#red, #green, #blue {
+
+#singleSlider, #redSlider, #greenSlider, #blueSlider {
     float: left;
     clear: left;
     width: 300px;
     margin: 15px;
 }
-#swatch {
+
+#swatchArea {
     width: 120px;
     height: 100px;
     margin-top: 18px;
     margin-left: 350px;
     background-image: none;
 }
-#red .ui-slider-range { background: #ef2929; }
-#red .ui-slider-handle { border-color: #ef2929; }
-#green .ui-slider-range { background: #8ae234; }
-#green .ui-slider-handle { border-color: #8ae234; }
-#blue .ui-slider-range { background: #729fcf; }
-#blue .ui-slider-handle { border-color: #729fcf; }
+
+#redSlider .ui-slider-range { background: #ef2929; }
+#redSlider .ui-slider-handle { border-color: #ef2929; }
+#greenSlider .ui-slider-range { background: #8ae234; }
+#greenSlider .ui-slider-handle { border-color: #8ae234; }
+#blueSlider .ui-slider-range { background: #729fcf; }
+#blueSlider .ui-slider-handle { border-color: #729fcf; }

@@ -32,46 +32,8 @@
     Created with AR.js and AFrame.
 </div>
 <div id="dialog" class="ui-widget-content" title="Options"></div>
-<a-scene id="scene" embedded arjs="sourceType: webcam;" renderer="precision: medium;">
-    <a-marker type="pattern" id="box-patt"
-              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cube.patt?v=1588089444176"
-              registerevents>
-    </a-marker>
-    <a-marker type="pattern" id="sphere-patt"
-              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-sphere.patt?v=1588089443759"
-              registerevents>
-        <a-sphere color="black" radius="1"></a-sphere>
-    </a-marker>
-    <a-marker type="pattern" id="cylinder-patt"
-              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cylinder.patt?v=1588089443520"
-              registerevents>
-        <a-cylinder color="black" height="1" radius="1"></a-cylinder>
-    </a-marker>
-    <a-marker type="pattern" id="red-patt"
-              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-red.patt?v=1588088872474"
-              registerevents>
-    </a-marker>
-    <a-marker type="pattern" id="green-patt"
-              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-green.patt?v=1588088872385"
-              registerevents>
-    </a-marker>
-    <a-marker type="pattern" id="blue-patt"
-              url="https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-blue.patt?v=1588088872172"
-              registerevents>
-    </a-marker>
-    <a-entity camera></a-entity>
-</a-scene>
-
 <script>
-    window.addEventListener('load', () => {
-        for (let i= 0; i<commands.length; i++) {
-            document.getElementById(commands[i]).addEventListener("markerFound", e => {
-                document.getElementById("info-box").innerText = commands[i] + " marker is found";
-                combineMarkers(commands[i]);
-            });
-        }
-    });
-
+    fillScene();
 </script>
 </body>
 </html>
