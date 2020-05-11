@@ -3,6 +3,7 @@ const link_blue = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2
 const link_green = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-green.patt?v=1588442231915";
 const link_red = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-red.patt?v=1588442235817";
 const link_color = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-color.patt?v=1588442214856";
+const link_cone = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cone.patt?v=1589177791533";
 
 // shape links
 const link_box = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cube.patt?v=1588442219281";
@@ -19,6 +20,10 @@ const link_for_loop = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a
 const link_rotate_anim = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-rotate_anim.patt?v=1588442244057";
 const link_color_anim = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-color_anim.patt?v=1588442217187";
 
+// asset links
+const link_lego = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-lego.patt?v=1589177794829";
+const figure_lego_gltf = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Flego-figure.gltf?v=1589131593892";
+
 // colors
 const red = "red-patt";
 const blue = "blue-patt";
@@ -29,6 +34,7 @@ const col = "color-patt";
 const box = "box-patt";
 const sphere = "sphere-patt";
 const cylinder = "cylinder-patt";
+const cone = "cone-patt";
 const dimension = "dimension-patt";
 const rotate = "rotate-patt";
 
@@ -39,26 +45,33 @@ const for_loop = "for-loop-patt";
 const color_anim = "color-anim-patt";
 const rotate_anim = "rotate-anim-patt";
 
+// assets
+const lego = "lego-patt";
+
 const commands = [
     // shapes
-    box, sphere, cylinder, dimension, rotate,
+    box, sphere, cylinder, cone, dimension, rotate,
     // colors
     red, blue, green, col,
     //control
     for_loop,
     // animations
-    color_anim, rotate_anim
+    color_anim, rotate_anim,
+    //assets
+    lego
 ];
 
 const links = [
     // shapes
-    link_box, link_sphere, link_cylinder, link_dimension, link_rotate,
+    link_box, link_sphere, link_cone, link_cylinder, link_dimension, link_rotate,
     // colors
     link_red, link_blue, link_green, link_color,
     //control
     link_for_loop,
     // animations
-    link_color_anim, link_rotate_anim
+    link_color_anim, link_rotate_anim,
+    //assets
+    link_lego
 ];
 
 // parameters
@@ -102,6 +115,10 @@ function combineMarkers(id) {
     }
     //lastEl.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 10000");
     lastEl = sceneEl.querySelector('#d' + (cnt - 1));
+}
+
+function drawGLTF(id, position) {
+  
 }
 
 function drawShape(id, position) {
@@ -154,6 +171,9 @@ function isShape(id) {
         return true;
     }
     if (id === sphere) {
+        return true;
+    } 
+    if (id === cone) {
         return true;
     }
     return id === cylinder;
