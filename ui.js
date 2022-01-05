@@ -1,6 +1,14 @@
 function openUIDialog(id) {
     $("#dialog").dialog({
-        width: "auto"
+        resizable: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        buttons: {
+            Ok: function() {
+                $( this ).dialog( "close" );
+            }
+        }
     });
     //$("#dialog").empty();
     if (id === col) {

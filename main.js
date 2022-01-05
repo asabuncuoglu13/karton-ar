@@ -3,11 +3,11 @@ const link_blue = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/ma
 const link_green = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-green.patt";
 const link_red = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-red.patt";
 const link_color = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-color.patt";
-const link_cone = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cone.patt";
 
 // shape links
 const link_box = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cube.patt";
 const link_cylinder = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cylinder.patt";
+const link_cone = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cone.patt";
 const link_sphere = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-sphere.patt";
 const link_arrow = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-arrow.patt";
 const link_dimension = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-ruler.patt";
@@ -22,7 +22,7 @@ const link_color_anim = "https://raw.githubusercontent.com/asabuncuoglu13/karton
 
 // asset links
 const link_lego = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-lego.patt";
-const figure_lego_gltf = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/lego-figure.gltf";
+const figure_lego_gltf = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/gltf/lego-figure.gltf";
 
 // colors
 const red = "red-patt";
@@ -87,6 +87,7 @@ let isContinuous = true;
 let shapeDrawing = true;
 
 let code = "";
+let tmp;
 let lastEl;
 
 function combineMarkers(id) {
@@ -95,15 +96,17 @@ function combineMarkers(id) {
     }
     let sceneEl = document.querySelector('a-scene');
     if (isShape(id)) {
-        for (let i = 0; i <loopTimes; i++){
-            drawShape(id, pos);
-            if (isContinuous) {
-                pos[0] += 1;
+        if (tmp !== id) {
+            for (let i = 0; i < loopTimes; i++) {
+                drawShape(id, pos);
+                if (isContinuous) {
+                    pos[0] += 1;
+                }
             }
+            document.getElementById(id).innerHTML = code;
+            cnt += 1;
+            shapeDrawing = true;
         }
-        document.getElementById(id).innerHTML = code;
-        cnt += 1;
-        shapeDrawing = true;
     } else if (id === color_anim) {
         shapeDrawing = false;
         anim = "property: material.color; to: " + hexColorAnim + "; " +
@@ -115,10 +118,11 @@ function combineMarkers(id) {
     }
     //lastEl.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 10000");
     lastEl = sceneEl.querySelector('#d' + (cnt - 1));
+    tmp = id;
 }
 
 function drawGLTF(id, position) {
-  
+
 }
 
 function drawShape(id, position) {
@@ -140,6 +144,15 @@ function drawShape(id, position) {
             '" animation="' + anim +
             '">' +
             '</a-cylinder>\n';
+    } else if (id === cone) {
+        code += '<a-cone id="d' + cnt +
+            '" position="' + position.join(' ') +
+            '" color="' + hexColor +
+            '" height="' + h +
+            '" radius-bottom="' + r +
+            '" animation="' + anim +
+            '">' +
+            '</a-cone>\n';
     } else if (id === sphere) {
         code += '<a-sphere id="d' + cnt +
             '" position="' + position.join(' ') +
@@ -148,6 +161,8 @@ function drawShape(id, position) {
             '" animation="' + anim +
             '">' +
             '</a-sphere>\n';
+    } else if (id === lego){
+        code += '<a-entity gltf-model="url('+ link_lego +')"></a-entity>'
     }
 }
 
@@ -172,8 +187,12 @@ function isShape(id) {
     }
     if (id === sphere) {
         return true;
-    } 
+    }
     if (id === cone) {
+        return true;
+    }
+
+    if (id === lego) {
         return true;
     }
     return id === cylinder;
