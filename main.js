@@ -22,7 +22,7 @@ const link_color_anim = "https://raw.githubusercontent.com/asabuncuoglu13/karton
 
 // asset links
 const link_lego = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-lego.patt";
-const figure_lego_gltf = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/gltf/lego-spiderman/scene.gltf";
+const figure_lego_gltf = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/gltf/lego-figure.gltf";
 
 // colors
 const red = "red-patt";
@@ -121,10 +121,6 @@ function combineMarkers(id) {
     tmp = id;
 }
 
-function drawGLTF(id, position) {
-
-}
-
 function drawShape(id, position) {
     if (id === box) {
         code += '<a-box id="d' + cnt +
@@ -161,13 +157,16 @@ function drawShape(id, position) {
             '" animation="' + anim +
             '">' +
             '</a-sphere>\n';
-    } else if (id === lego){
-        code += '<a-entity gltf-model="url('+ link_lego +')"></a-entity>'
+    } else if (id === lego) {
+        code += '<a-entity gltf-model="#' + lego + '"></a-entity>'
     }
 }
 
 function fillScene() {
     let markerHTML = '<a-scene id="scene" embedded arjs="sourceType: webcam;" renderer="precision: medium;">';
+    markerHTML += '  <a-assets>\n' +
+        '    <a-asset-item id="' + lego + '" src="' + link_lego + '"></a-asset-item>\n' +
+        '  </a-assets>'
     for (let i = 0; i < commands.length; i++) {
         markerHTML += '<a-marker type="pattern" id="' + commands[i] + '" url="' + links[i] + '">\n</a-marker>\n';
     }
