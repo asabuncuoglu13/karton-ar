@@ -1,6 +1,6 @@
 
 let redComponent = "163", greenComponent = "171", blueComponent = "184";
-let hexColor = "#a3abb8";
+let hexColor = hexFromRGB(redComponent, greenComponent, blueComponent);
 let hexColorAnim = "#a3abb8";
 let tempColor = "#a3abb8";
 

@@ -76,7 +76,8 @@ const links = [
 ];
 
 // parameters
-let posX = 0, posY = 0, posZ= 0;
+let posX = 0, posY = 0, posZ = 0;
+let rotateX = 45, rotateY = 45, rotateZ = 45;
 let pos = [posX, posY, posZ], w = 1, h = 1, d = 1, r = 0.5;
 let opacity = 1;
 let loopTimes = 1;
@@ -127,7 +128,8 @@ function drawShape(id, position) {
     if (id === box) {
         code += '<a-box id="d' + cnt +
             '" position="' + position.join(' ') +
-            '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
+            '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ") " +
+            '" rotation= "' + rotateX + ' ' + rotateY + ' ' + rotateZ + '"' +
             '" height="' + h +
             '" width="' + w +
             '" animation="' + anim +
@@ -137,6 +139,7 @@ function drawShape(id, position) {
         code += '<a-cylinder id="d' + cnt +
             '" position="' + position.join(' ') +
             '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
+            '" rotation= "' + rotateX + ' ' + rotateY + ' ' + rotateZ + '"' +
             '" height="' + h +
             '" radius="' + r +
             '" animation="' + anim +
@@ -146,6 +149,7 @@ function drawShape(id, position) {
         code += '<a-cone id="d' + cnt +
             '" position="' + position.join(' ') +
             '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
+            '" rotation= "' + rotateX + ' ' + rotateY + ' ' + rotateZ + '"' +
             '" height="' + h +
             '" radius-bottom="' + r +
             '" animation="' + anim +
@@ -155,6 +159,7 @@ function drawShape(id, position) {
         code += '<a-sphere id="d' + cnt +
             '" position="' + position.join(' ') +
             '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
+            '" rotation= "' + rotateX + ' ' + rotateY + ' ' + rotateZ + '"' +
             '" radius="' + r +
             '" animation="' + anim +
             '">' +

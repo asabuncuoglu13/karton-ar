@@ -25,6 +25,8 @@ function openUIDialog(id) {
         appendDimensionSlider();
     } else if (id === position) {
         appendPositionSlider();
+    } else if (id === rotate) {
+        appendRotateSlider();
     } else {
         $("#dialog").dialog( "close" );
     }
@@ -174,6 +176,13 @@ function refreshPosition() {
     $("#dimensionArea").html(posX + ", " + posY + ", " + posZ);
 }
 
+function refreshRotation() {
+    rotateX = $("#rotXSlider").slider("value");
+    rotateY = $("#rotYSlider").slider("value");
+    rotateZ = $("#rotZSlider").slider("value");
+    $("#rotxyzArea").html(posX + ", " + posY + ", " + posZ);
+}
+
 function appendDimensionSlider() {
     $("#dialog").html(
         "<p id='red-slider-text'>Boyutları belirleyin: </p>" +
@@ -218,5 +227,29 @@ function appendPositionSlider() {
         "$( '#xSlider' ).slider( 'value', 0 );\n" +
         "$( '#ySlider' ).slider( 'value', 0 );\n" +
         "$( '#zSlider' ).slider( 'value', 0 );" +
+        "</script>\n");
+}
+
+function appendRotateSlider() {
+    $("#dialog").html(
+        "<p id='rotate-slider-text'>Dönüş derecesini belirleyin:</p>" +
+        "<div id='rotXSlider' class='pop-slider'></div>\n" +
+        "<div id='rotYSlider' class='pop-slider'></div>\n" +
+        "<div id='rotZSlider' class='pop-slider'></div>\n" +
+        "<div id='rotxyzArea' class='pop-result ui-widget-content ui-corner-all'></div>" +
+        "<script>\n" +
+        "$( '#rotXSlider, #rotYSlider, #rotZSlider' ).slider({\n" +
+        "    orientation: 'horizontal',\n" +
+        "    range: 'min',\n" +
+        "    max: 360,\n" +
+        "    min: 0,\n" +
+        "    value: 0,\n" +
+        "    step: 20, \n" +
+        "    slide: refreshRotation,\n" +
+        "    change: refreshRotation\n" +
+        "});\n" +
+        "$( '#rotXSlider' ).slider( 'value', 0 );\n" +
+        "$( '#rotYSlider' ).slider( 'value', 0 );\n" +
+        "$( '#rotZSlider' ).slider( 'value', 0 );" +
         "</script>\n");
 }
