@@ -22,7 +22,7 @@ const link_color_anim = "https://raw.githubusercontent.com/asabuncuoglu13/karton
 
 // asset links
 const link_lego = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-lego.patt";
-const figure_lego_gltf = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/gltf/lego-figure.gltf";
+const figure_lego_gltf = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/gltf/lego-spiderman/scene.gltf";
 
 // colors
 const red = "red-patt";
