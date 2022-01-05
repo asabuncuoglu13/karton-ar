@@ -1,5 +1,5 @@
 
-let redComponent = "FF", greenComponent = "FF", blueComponent = "FF";
+let redComponent = "163", greenComponent = "171", blueComponent = "184";
 let hexColor = "#a3abb8";
 let hexColorAnim = "#a3abb8";
 let tempColor = "#a3abb8";
@@ -15,8 +15,5 @@ function hexFromRGB(r, g, b) {
             hex[ nr ] = "0" + val;
         }
     });
-    redComponent = hex[0];
-    greenComponent = hex[1];
-    blueComponent = hex[2];
     return hex.join( "" ).toUpperCase();
 }

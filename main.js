@@ -9,7 +9,7 @@ const link_box = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/mas
 const link_cylinder = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cylinder.patt";
 const link_cone = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cone.patt";
 const link_sphere = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-sphere.patt";
-const link_arrow = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-arrow.patt";
+const link_position = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-arrow.patt";
 const link_dimension = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-ruler.patt";
 const link_rotate = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-rotate.patt";
 
@@ -40,6 +40,7 @@ const rotate = "rotate-patt";
 
 // control
 const for_loop = "for-loop-patt";
+const position = "position-patt";
 
 // animation
 const color_anim = "color-anim-patt";
@@ -54,7 +55,7 @@ const commands = [
     // colors
     red, blue, green, col,
     //control
-    for_loop,
+    for_loop, position,
     // animations
     color_anim, rotate_anim,
     //assets
@@ -67,7 +68,7 @@ const links = [
     // colors
     link_red, link_blue, link_green, link_color,
     //control
-    link_for_loop,
+    link_for_loop, link_position,
     // animations
     link_color_anim, link_rotate_anim,
     //assets
@@ -75,7 +76,8 @@ const links = [
 ];
 
 // parameters
-let pos = [0, 0, 0], w = 1, h = 1, d = 1, r = 0.5;
+let posX = 0, posY = 0, posZ= 0;
+let pos = [posX, posY, posZ], w = 1, h = 1, d = 1, r = 0.5;
 let opacity = 1;
 let loopTimes = 1;
 let duration = 5;
@@ -125,7 +127,7 @@ function drawShape(id, position) {
     if (id === box) {
         code += '<a-box id="d' + cnt +
             '" position="' + position.join(' ') +
-            '" color="' + hexColor +
+            '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
             '" height="' + h +
             '" width="' + w +
             '" animation="' + anim +
@@ -134,7 +136,7 @@ function drawShape(id, position) {
     } else if (id === cylinder) {
         code += '<a-cylinder id="d' + cnt +
             '" position="' + position.join(' ') +
-            '" color="' + hexColor +
+            '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
             '" height="' + h +
             '" radius="' + r +
             '" animation="' + anim +
@@ -143,7 +145,7 @@ function drawShape(id, position) {
     } else if (id === cone) {
         code += '<a-cone id="d' + cnt +
             '" position="' + position.join(' ') +
-            '" color="' + hexColor +
+            '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
             '" height="' + h +
             '" radius-bottom="' + r +
             '" animation="' + anim +
@@ -152,7 +154,7 @@ function drawShape(id, position) {
     } else if (id === sphere) {
         code += '<a-sphere id="d' + cnt +
             '" position="' + position.join(' ') +
-            '" color="' + hexColor +
+            '" color="rgb(' + redComponent + "," + greenComponent + "," + blueComponent + ")" +
             '" radius="' + r +
             '" animation="' + anim +
             '">' +
