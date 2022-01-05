@@ -1,28 +1,28 @@
 // color links
-const link_blue = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-blue.patt?v=1588442213011";
-const link_green = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-green.patt?v=1588442231915";
-const link_red = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-red.patt?v=1588442235817";
-const link_color = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-color.patt?v=1588442214856";
-const link_cone = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cone.patt?v=1589177791533";
+const link_blue = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-blue.patt";
+const link_green = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-green.patt";
+const link_red = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-red.patt";
+const link_color = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-color.patt";
+const link_cone = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cone.patt";
 
 // shape links
-const link_box = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cube.patt?v=1588442219281";
-const link_cylinder = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-cylinder.patt?v=1588442223107";
-const link_sphere = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-sphere.patt?v=1588442248020";
-const link_arrow = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-arrow.patt?v=1588442210587";
-const link_dimension = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-ruler.patt?v=1588442246167";
-const link_rotate = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-rotate.patt?v=1588442242111";
+const link_box = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cube.patt";
+const link_cylinder = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-cylinder.patt";
+const link_sphere = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-sphere.patt";
+const link_arrow = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-arrow.patt";
+const link_dimension = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-ruler.patt";
+const link_rotate = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-rotate.patt";
 
 // control links
-const link_for_loop = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-for.patt?v=1588442229048";
+const link_for_loop = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-for.patt";
 
 // animation links
-const link_rotate_anim = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-rotate_anim.patt?v=1588442244057";
-const link_color_anim = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-color_anim.patt?v=1588442217187";
+const link_rotate_anim = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-rotate_anim.patt";
+const link_color_anim = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-color_anim.patt";
 
 // asset links
-const link_lego = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Fpattern-lego.patt?v=1589177794829";
-const figure_lego_gltf = "https://cdn.glitch.com/4a5420cd-75bd-4a85-8dfa-2f081e115a63%2Flego-figure.gltf?v=1589131593892";
+const link_lego = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/pattern-lego.patt";
+const figure_lego_gltf = "https://raw.githubusercontent.com/asabuncuoglu13/karton-ar/master/patt/lego-figure.gltf";
 
 // colors
 const red = "red-patt";
