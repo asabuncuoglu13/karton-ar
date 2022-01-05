@@ -1,9 +1,11 @@
 function openUIDialog(id) {
     $("#dialog").dialog({
-        resizable: false,
+        resizable: true,
+        draggable: true,
         height: "auto",
         width: "auto",
         modal: true,
+        position: { my: "left top", at: "left top", of: $( this )},
         buttons: {
             Ok: function() {
                 $( this ).dialog( "close" );
@@ -65,7 +67,7 @@ function changeColor(){
 
 function appendColorSlider() {
     $("#dialog").html(
-        "<p id='red-slider-text'>Renk oranlarını ayarlayın: </p>" +
+        "<p id='color-slider-text'>Renk oranlarını ayarlayın: </p>" +
         "<div id='redSlider' class='pop-slider'></div>\n" +
         "<div id='greenSlider' class='pop-slider'></div>\n" +
         "<div id='blueSlider' class='pop-slider'></div>\n" +
