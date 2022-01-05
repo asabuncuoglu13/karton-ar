@@ -11,13 +11,14 @@ function openUIDialog(id) {
         }
     });
     //$("#dialog").empty();
-    if (id === col) {
+    if (id === col || id === color_anim) {
         appendColorSlider();
     } else if (id === for_loop) {
         appendForLoopSlider();
     } else if (id === dimension) {
         appendDimensionSlider();
     } else {
+        $("#dialog").dialog( "close" );
     }
 }
 

@@ -112,7 +112,7 @@ function combineMarkers(id) {
         anim = "property: material.color; to: " + hexColorAnim + "; " +
             "dur: ; " + (duration * 1000) +
             "easing: linear; " +
-            "loop: " + loopTimes;
+            "loop: true";
     } else {
         openUIDialog(id);
     }
